@@ -1,32 +1,37 @@
 const loader = document.querySelector(".mdc-linear-progress")
 const linearProgress = new window.mdc.linearProgress.MDCLinearProgress(loader)
 
-window.$(function () {
-    var params = {
-        // Request parameters
-        // "$filter": "{String}",
-        // "$top": "{string}",
-        // "$skip": "{string}",
-        "$format": "json",
-        // "$orderby": "{String}",
-    };
+fetch("https://find-a-bus-server.sites.tjhsst.edu/transitiq/Stops?")
+    .then(raw => raw.json())
+    .then(json => console.log(json))
+    .catch(console.error)
 
-    $.ajax({
-            url: "https://hacktj2020api.eastbanctech.com/transitiq/Stops/?$format=json",
-            beforeSend: function (xhrObj) {
-                // Request headers
-                xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "49310879d5e249dbab5c8db115a51305");
-            },
-            type: "GET",
-        })
-        .done(function (data) {
-            console.log(data)
-            console.log("success");
-        })
-        .fail(function () {
-            console.log("error");
-        });
-});
+// window.$(function () {
+//     var params = {
+//         // Request parameters
+//         // "$filter": "{String}",
+//         // "$top": "{string}",
+//         // "$skip": "{string}",
+//         "$format": "json",
+//         // "$orderby": "{String}",
+//     };
+
+//     $.ajax({
+//             url: "https://hacktj2020api.eastbanctech.com/transitiq/Stops/?$format=json",
+//             beforeSend: function (xhrObj) {
+//                 // Request headers
+//                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "49310879d5e249dbab5c8db115a51305");
+//             },
+//             type: "GET",
+//         })
+//         .done(function (data) {
+//             console.log(data)
+//             console.log("success");
+//         })
+//         .fail(function () {
+//             console.log("error");
+//         });
+// });
 
 // const data = fetch("https://hacktj2020api.eastbanctech.com/transitiq/Stops?$format=Leg", {
 //     method: "GET",
