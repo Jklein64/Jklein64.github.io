@@ -4,11 +4,11 @@ const linearProgress = new window.mdc.linearProgress.MDCLinearProgress(loader)
 window.$(function () {
     var params = {
         // Request parameters
-        "$filter": "{String}",
-        "$top": "{string}",
-        "$skip": "{string}",
-        "$format": "{String}",
-        "$orderby": "{String}",
+        // "$filter": "{String}",
+        // "$top": "{string}",
+        // "$skip": "{string}",
+        "$format": "json",
+        // "$orderby": "{String}",
     };
 
     $.ajax({
@@ -18,8 +18,6 @@ window.$(function () {
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "49310879d5e249dbab5c8db115a51305");
             },
             type: "GET",
-            // Request body
-            data: "{body}",
         })
         .done(function (data) {
             console.log(data)
