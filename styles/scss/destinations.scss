@@ -1,14 +1,18 @@
 @use "colors";
 @use "@material/theme" with (
     $primary: colors.$orange,
-    $on-primary: white
+    $secondary: colors.$orange,
+    $on-primary: white,
+    $on-secondary: white
 );
 
 @use "@material/typography/mdc-typography";
 @use "@material/icon-button";
 @use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/fab";
 
 @include icon-button.core-styles;
+@include fab.core-styles;
 
 *, *::before, *::after {
     margin: 0;
@@ -26,5 +30,11 @@ body {
         [class*="title"] {
             color: white;
         }
+    }
+
+    #fab {
+        position: absolute;
+        bottom: 24px;
+        right: 16px;
     }
 }
