@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "node .",
-        "deploy": "git push origin main && git subtree push --prefix src origin gh-pages"
+        "deploy": "git push origin main; git subtree push --prefix src origin gh-pages"
     },
     "repository": {
         "type": "git",
@@ -20,7 +20,9 @@
     "homepage": "https://github.com/userOfThisWebsite/Find-a-Bus-Online#readme",
     "dependencies": {
         "@material/button": "^8.0.0",
+        "@material/icon-button": "^8.0.0",
         "@material/linear-progress": "^8.0.0",
+        "@material/top-app-bar": "^8.0.0",
         "@material/typography": "^8.0.0"
     },
     "devDependencies": {
