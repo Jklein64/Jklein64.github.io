@@ -12,7 +12,7 @@ window.$(function () {
     };
 
     $.ajax({
-            url: "https://hacktj2020api.eastbanctech.com/transitiq/Stops?" + $.param(params),
+            url: "https://hacktj2020api.eastbanctech.com/transitiq/Stops/?$format=json",
             beforeSend: function (xhrObj) {
                 // Request headers
                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "49310879d5e249dbab5c8db115a51305");
