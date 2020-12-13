@@ -23,10 +23,10 @@ window.$(function () {
         })
         .done(function (data) {
             console.log(data)
-            alert("success");
+            console.log("success");
         })
         .fail(function () {
-            alert("error");
+            console.log("error");
         });
 });
 
