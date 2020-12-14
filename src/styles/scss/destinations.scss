@@ -9,9 +9,12 @@
 @use "@material/typography/mdc-typography";
 @use "@material/icon-button";
 @use "@material/top-app-bar/mdc-top-app-bar";
+@use "@material/elevation/mdc-elevation";
 @use "@material/fab";
+@use "@material/list";
 
 @include icon-button.core-styles;
+@include list.core-styles;
 @include fab.core-styles;
 
 *, *::before, *::after {
@@ -26,15 +29,53 @@ html {
 }
 
 body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
     #app-bar {
+        position: initial;
+
         [class*="title"] {
             color: white;
         }
     }
 
     #fab {
-        position: absolute;
+        position: fixed;
         bottom: 24px;
         right: 16px;
+
+    }
+
+    #destinations-list {
+        $top-offset: 24vh;
+
+        position: absolute;
+        width: 100%;
+        top: $top-offset;
+        bottom: 0;
+        overflow-y: auto;
+        display: none;
+
+        #mask {
+            background: rgba(0, 0, 0, 0.5);
+            position: fixed;
+            bottom: 100vh - $top-offset;
+            right: 0;
+            left: 0;
+            top: 0;
+            z-index: 5;
+        }
+    }
+
+    &.destinations {
+        #destinations-list {
+            display: block;
+        }
+
+        #fab {
+            display: none;
+        }
     }
 }
