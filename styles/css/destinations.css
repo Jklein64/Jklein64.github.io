@@ -3865,7 +3865,10 @@ html {
 }
 
 body {
-  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3884,19 +3887,27 @@ body #fab {
   position: fixed;
   bottom: 24px;
   right: 16px;
+  z-index: 1;
+}
+body #map-container {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  z-index: 0;
 }
 body #destinations-list {
   position: absolute;
   width: 100%;
-  top: 24vh;
+  top: 24%;
   bottom: 0;
   overflow-y: auto;
   display: none;
+  background-color: white;
 }
 body #destinations-list #mask {
   background: rgba(0, 0, 0, 0.5);
   position: fixed;
-  bottom: 76vh;
+  bottom: 76%;
   right: 0;
   left: 0;
   top: 0;

@@ -29,7 +29,10 @@ html {
 }
 
 body {
-    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
 
@@ -45,11 +48,17 @@ body {
         position: fixed;
         bottom: 24px;
         right: 16px;
+        z-index: 1;
 
     }
 
+    #map-container {
+        flex-grow: 1;
+        z-index: 0;
+    }
+
     #destinations-list {
-        $top-offset: 24vh;
+        $top-offset: 24%;
 
         position: absolute;
         width: 100%;
@@ -57,17 +66,20 @@ body {
         bottom: 0;
         overflow-y: auto;
         display: none;
+        background-color: white;
 
         #mask {
             background: rgba(0, 0, 0, 0.5);
             position: fixed;
-            bottom: 100vh - $top-offset;
+            bottom: 100% - $top-offset;
             right: 0;
             left: 0;
             top: 0;
             z-index: 5;
         }
     }
+
+
 
     &.destinations {
         #destinations-list {
