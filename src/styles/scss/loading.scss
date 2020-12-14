@@ -28,7 +28,11 @@ body {
     align-items: stretch;
 
     #loading {
-        text-align: center;
+        [class*="headline"], [class*="subtitle"] {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
 
         #progressbar {
             width: calc(100% - 80px * 2);
