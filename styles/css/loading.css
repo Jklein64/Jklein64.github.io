@@ -904,7 +904,9 @@ body {
       -ms-flex-align: stretch;
           align-items: stretch;
 }
-body #loading {
+body #loading [class*=headline], body #loading [class*=subtitle] {
+  display: block;
+  width: 100%;
   text-align: center;
 }
 body #loading #progressbar {

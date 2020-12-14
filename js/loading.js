@@ -1,50 +1,62 @@
 const loader = document.querySelector(".mdc-linear-progress")
+
 const linearProgress = new window.mdc.linearProgress.MDCLinearProgress(loader)
 
-fetch("https://find-a-bus-server.sites.tjhsst.edu/transitiq/Stops?")
+const quantity = {
+    stops: undefined,
+    routes: undefined
+}
+
+const stops = fetch(`https://find-a-bus-server.sites.tjhsst.edu/transitiq/Stops?${top(quantity.stops)}`)
     .then(raw => raw.json())
-    .then(json => console.log(json))
+    .then(json => json.value)
     .catch(console.error)
+    .then(v => {
+        incrementValue(0.5);
+        return v
+    }, console.error)
 
-// window.$(function () {
-//     var params = {
-//         // Request parameters
-//         // "$filter": "{String}",
-//         // "$top": "{string}",
-//         // "$skip": "{string}",
-//         "$format": "json",
-//         // "$orderby": "{String}",
-//     };
+const routes = fetch(`https://find-a-bus-server.sites.tjhsst.edu/transitiq/Routes?${top(quantity.routes)}`)
+    .then(raw => raw.json())
+    .then(json => json.value)
+    .catch(console.error)
+    .then(v => {
+        incrementValue(0.5);
+        return v
+    }, console.error)
 
-//     $.ajax({
-//             url: "https://hacktj2020api.eastbanctech.com/transitiq/Stops/?$format=json",
-//             beforeSend: function (xhrObj) {
-//                 // Request headers
-//                 xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "49310879d5e249dbab5c8db115a51305");
-//             },
-//             type: "GET",
-//         })
-//         .done(function (data) {
-//             console.log(data)
-//             console.log("success");
-//         })
-//         .fail(function () {
-//             console.log("error");
-//         });
-// });
+Promise.all([stops, routes]).then(([stops, routes]) => {
+    window.sessionStorage.setItem("stops", JSON.stringify(stops))
+    window.sessionStorage.setItem("routes", JSON.stringify(routes))
+    next()
+})
 
-// const data = fetch("https://hacktj2020api.eastbanctech.com/transitiq/Stops?$format=Leg", {
-//     method: "GET",
-//     headers: {
-//         "Ocp-Apim-Subscription-Key": '49310879d5e249dbab5c8db115a51305',
-//     },
-// }).then(raw => {
-//     console.log({
-//         raw
-//     });
-//     return raw.text()
-// }).then(data => {
-//     console.log({
-//         data
-//     })
-// })
+
+function incrementValue(increment) {
+    const value = (() => {
+        const valuenow = linearProgress.root.getAttribute("aria-valuenow")
+        if (valuenow === null) return 0 + increment
+        else return parseFloat(valuenow) + increment
+    })()
+
+    linearProgress.root.querySelector(".mdc-linear-progress__primary-bar").style.transform = `scaleX(${value})`
+    linearProgress.root.setAttribute("aria-valuenow", `${value}`)
+    linearProgress.root.classList.remove("mdc-linear-progress--indeterminate")
+}
+
+function top(value) {
+    if (value) {
+        return `$top${value}`
+    } else {
+        return ""
+    }
+}
+
+function next() {
+    setTimeout(() => {
+        console.log("go to the next page!")
+        const a = document.createElement("a")
+        a.href = "destinations.html"
+        a.click()
+    }, 800)
+}
