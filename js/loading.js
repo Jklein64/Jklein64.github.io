@@ -3,8 +3,8 @@ const loader = document.querySelector(".mdc-linear-progress")
 const linearProgress = new window.mdc.linearProgress.MDCLinearProgress(loader)
 
 const quantity = {
-    stops: undefined,
-    routes: undefined
+    stops: 100,
+    routes: 100
 }
 
 const stops = fetch(`https://find-a-bus-server.sites.tjhsst.edu/transitiq/Stops?${top(quantity.stops)}`)
@@ -46,7 +46,7 @@ function incrementValue(increment) {
 
 function top(value) {
     if (value) {
-        return `$top${value}`
+        return `$top=${value}`
     } else {
         return ""
     }
