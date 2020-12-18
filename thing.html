@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Thing</title>
+
+		<link
+			href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+			rel="preload"
+			type="text/css"
+			as="style"
+			onload="this.rel='stylesheet'"
+		/>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet" />
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+	</style>
+	<body>
+		<div data-barba="wrapper">
+			<main data-barba="container" data-barba-namespace="thing">
+				<mwc-top-app-bar>
+					<a style="color: inherit" href="/" slot="navigationIcon">
+						<mwc-icon-button icon="arrow_back"></mwc-icon-button>
+					</a>
+					<div slot="title">Thing</div>
+					<mwc-icon-button icon="file_download" slot="actionItems"></mwc-icon-button>
+					<mwc-icon-button icon="print" slot="actionItems"></mwc-icon-button>
+					<mwc-icon-button icon="favorite" slot="actionItems"></mwc-icon-button>
+				</mwc-top-app-bar>
+			</main>
+		</div>
+
+		<!-- <script type="module" src="barba.js"></script> -->
+
+		<script data-dependencies type="module">
+			export default [
+				"https://unpkg.com/@material/mwc-slider@0.20.0/mwc-slider.js?module",
+				"https://unpkg.com/@material/mwc-button@0.20.0/mwc-button.js?module",
+				"https://unpkg.com/@material/mwc-icon-button@0.20.0/mwc-icon-button.js?module",
+				"https://unpkg.com/@material/mwc-top-app-bar@0.20.0/mwc-top-app-bar.js?module",
+			]
+		</script>
+	</body>
+</html>
