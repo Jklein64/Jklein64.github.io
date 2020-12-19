@@ -1,0 +1,1 @@
+export default {"SNOWPACK_PUBLIC_WORKER":"true","MODE":"production","NODE_ENV":"production","SSR":false};

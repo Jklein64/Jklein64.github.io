@@ -19,8 +19,9 @@
         "snowpack": "^2.18.5"
     },
     "scripts": {
-        "dev": "echo 'SNOWPACK_PUBLIC_WORKER=false' > .env; snowpack --config snowpack.config.json dev",
-        "dev:worker": "echo 'SNOWPACK_PUBLIC_WORKER=false' > .env; snowpack dev --secure"
+        "dev": "echo 'SNOWPACK_PUBLIC_WORKER=false' > .env && snowpack dev --config snowpack.config.json",
+        "dev:worker": "echo 'SNOWPACK_PUBLIC_WORKER=true' > .env && snowpack --secure --config snowpack.config.json dev",
+        "build": "echo 'SNOWPACK_PUBLIC_WORKER=true' > .env && snowpack --config snowpack.config.json build"
     },
     "keywords": [],
     "author": "",

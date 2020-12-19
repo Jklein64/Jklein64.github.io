@@ -1,0 +1,14 @@
+{
+  "imports": {
+    "@barba/core": "./@barba/core.js",
+    "@barba/css": "./@barba/css.js",
+    "@material/mwc-button": "./@material/mwc-button.js",
+    "@material/mwc-dialog": "./@material/mwc-dialog.js",
+    "@material/mwc-drawer": "./@material/mwc-drawer.js",
+    "@material/mwc-fab": "./@material/mwc-fab.js",
+    "@material/mwc-icon-button": "./@material/mwc-icon-button.js",
+    "@material/mwc-list": "./@material/mwc-list.js",
+    "@material/mwc-slider": "./@material/mwc-slider.js",
+    "@material/mwc-top-app-bar-fixed": "./@material/mwc-top-app-bar-fixed.js"
+  }
+}
