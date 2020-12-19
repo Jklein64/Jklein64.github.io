@@ -21,29 +21,21 @@ self.addEventListener("install", e => {
 })
 
 self.addEventListener("fetch", /** @type {(e: FetchEvent) => void} */ async e => {
-    // console.log("WORKER: fetch event in progress.")
-    const { request } = e, { method, url } = request
-    const localOrigin = globalThis.location.origin
+    const { request, respondWith } = e
 
-    console.log(`asking for ${url}`)
-
-    // if (method === "GET" && !url.includes(localOrigin)) {
-    e.respondWith(async function() {
+    respondWith(async function() {
         const cache = await caches.open(`${version}::external`)
         const cached = await cache.match(request)
 
         if (cached) {
-            console.log(`WORKER: Serving ${request.url} from cache.`)
             return cached
         } else {
-            console.log(`WORKER: Cache miss on ${request.url}.`)
             const response = await fetch(request)
             cache.put(request, response.clone())
             console.log(response)
             return response
         }
     }())
-    // }
 })
 
 self.addEventListener("activate", e => {
