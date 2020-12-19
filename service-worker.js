@@ -21,9 +21,9 @@ self.addEventListener("install", e => {
 })
 
 self.addEventListener("fetch", /** @type {(e: FetchEvent) => void} */ async e => {
-    const { request, respondWith } = e
+    const { request } = e
 
-    respondWith(async function() {
+    e.respondWith(async function() {
         const cache = await caches.open(`${version}::external`)
         const cached = await cache.match(request)
 
