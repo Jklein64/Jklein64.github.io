@@ -35,18 +35,13 @@
         <span slot="title">Destinations</span>
 
         <div class="drawer-content">
-            <mwc-list activatable>
-                <template>
+            <mwc-list id="destinations-list" activatable>
+                <template id="destination-template">
                     <mwc-list-item twoline>
                         <span>Destination Name</span>
                         <span slot="secondary">Destination Address</span>
                     </mwc-list-item>
                 </template>
-                <script async>/* Load destinations list */
-                    const destination = document.currentScript.previousElementSibling
-                    const destinations = destination.parentElement
-                    destinations.append(...new Array(15).fill().map(() => destination.content.cloneNode(true)))
-                </script>
             </mwc-list>
         </div>
 
@@ -89,6 +84,7 @@
                 <script type="module" src="js/index/fab.js"></script>
                 <script type="module" src="js/index/drawer.js"></script>
                 <script type="module" src="js/index/range.js"></script>
+                <script type="module" src="js/index/destinations.js"></script>
             </main>
 
         </div>
