@@ -15,10 +15,12 @@
         "@material/mwc-top-app-bar-fixed": "^0.20.0"
     },
     "devDependencies": {
+        "@snowpack/plugin-dotenv": "^2.0.5",
         "snowpack": "^2.18.5"
     },
     "scripts": {
-        "dev": "snowpack dev --secure"
+        "dev": "echo 'SNOWPACK_PUBLIC_WORKER=false' > .env; snowpack --config snowpack.config.json dev",
+        "dev:worker": "echo 'SNOWPACK_PUBLIC_WORKER=false' > .env; snowpack dev --secure"
     },
     "keywords": [],
     "author": "",

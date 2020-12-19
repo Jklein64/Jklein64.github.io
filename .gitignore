@@ -1,3 +1,4 @@
 node_modules
 snowpack.crt
 snowpack.key
+.env
