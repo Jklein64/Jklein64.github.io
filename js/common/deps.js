@@ -1,7 +1,7 @@
 import "https://unpkg.com/@material/mwc-slider@0.20.0/mwc-slider.js?module"
 import "https://unpkg.com/@material/mwc-button@0.20.0/mwc-button.js?module"
 import "https://unpkg.com/@material/mwc-icon-button@0.20.0/mwc-icon-button.js?module"
-import "https://unpkg.com/@material/mwc-top-app-bar@0.20.0/mwc-top-app-bar.js?module"
+import "https://unpkg.com/@material/mwc-top-app-bar-fixed@0.20.0/mwc-top-app-bar-fixed.js?module"
 import "https://unpkg.com/@material/mwc-drawer@0.20.0/mwc-drawer.js?module"
 import "https://unpkg.com/@material/mwc-fab@0.20.0/mwc-fab.js?module"
 import "https://unpkg.com/@material/mwc-list@0.20.0/mwc-list.js?module"
