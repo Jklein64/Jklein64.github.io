@@ -19,6 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
 
     <link
           href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
@@ -26,74 +27,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet" />
 </head>
-<style>
-    :root {
-        --mdc-theme-primary: #DE9050;
-    }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        height: 100%;
-        overflow: hidden;
-    }
-
-    main {
-        height: 100%;
-        overflow: hidden;
-    }
-
-    .drawer-content mwc-list-item {
-        padding: 0px 16px 0 16px;
-    }
-
-    #fabs {
-        position: fixed;
-        right: 16px;
-        bottom: 16px;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
-
-    #fabs>*:not(:first-of-type) {
-        margin-top: 16px;
-    }
-
-    mwc-fab#destinations-fab {
-        --mdc-theme-secondary: var(--mdc-theme-primary);
-        --mdc-theme-on-secondary: var(--mdc-theme-on-primary);
-    }
-
-    mwc-fab#range-fab {
-        --mdc-theme-secondary: white;
-        --mdc-theme-on-secondary: black;
-    }
-
-    #range-dialog span {
-        color: var(--mdc-theme-primary);
-    }
-
-    #range-dialog mwc-button[slot*='primary'] {
-        margin-left: 8px;
-    }
-
-    #range-slider-container {
-        margin: 24px 16px 0;
-        display: flex;
-        align-items: center;
-    }
-
-    #range-slider {
-        --mdc-theme-secondary: var(--mdc-theme-primary);
-        width: 100%;
-        margin: 0 16px;
-    }
-</style>
 
 <body>
 
