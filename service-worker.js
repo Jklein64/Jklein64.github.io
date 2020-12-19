@@ -13,72 +13,24 @@ self.addEventListener("install", e => {
 })
 
 self.addEventListener("fetch", /** @type {(e: FetchEvent) => void} */ e => {
-    // e.waitUntil(async () => {
-    console.log("WORKER: fetch event in progress.")
+    // console.log("WORKER: fetch event in progress.")
     const { request } = e, { method, url } = request
     const localOrigin = globalThis.location.origin
 
     if (method === "GET" && !url.includes(localOrigin)) {
-        e.respondWith(async function() {
-            // const cache = await caches.open(version)
-            // const cached = await cache.match(request)
-            // console.log({ cached })
+        // console.log(request.url)
+        // const bad = res => Promise.reject(
+        //     TypeError(`Response is not ok.  Recieved status ${res.status}`))
 
-            // if (cached) {
-            //     console.log(`WORKER: using cached value for ${url}`)
-            //     return cached
-            // }
+        // unpkg.com with `?module` can't handle relative `export * from`, and thinks it's absolute.
+        const modified = new Request(request.url.replace("https://unpkg.com/lib", "https://unpkg.com/lit-html@1.3.0/lib"))
 
-            try {
-                console.log(request)
-                const modified = new Request(request.url
-                    .replace("https://unpkg.com/lib/",
-                        "https://unpkg.com/lit-element@2.4.0/lib/"), {
-                        keepalive: true,
-                        referrer: request.referrer,
-                        referrerPolicy: request.referrerPolicy
-                    }
-                )
-                console.log("modified", modified)
-                // const response = await fetch(request)
-                // console.log({ response: response.clone() })
-                // if (!response.ok) throw new TypeError(`bad response status: ${response.status}`)
-
-                // cache.put(request, response.clone())
-                return fetch(modified)
-            } catch (error) {
-                if (error instanceof TypeError) {
-                    // likely unable to resolve
-                    console.error("WORKER: ", error)
-                    throw error
-                } else {
-                    throw error
-                }
-            }
-        }())
+        e.respondWith(
+            fetch(modified).then(response => {
+                console.log(response.status, modified, response)
+                return response
+            }))
     }
-    // })
-    // if (e.request.method === "GET") {
-    //     e.respondWith(caches.match(e.request).then(cached => {
-    //         const fetched = fetch(e.request).then(fetchedFromNetwork, unableToResolve).catch(unableToResolve)
-
-    //         return cached || fetched
-
-    //         function fetchedFromNetwork(response) {
-    //             const copy = response.clone()
-    //             caches
-    //                 .open(`${version}::pages`)
-    //                 .then(cache => cache.put(e.request, copy))
-    //             return response
-    //         }
-
-    //         function unableToResolve() {
-    //             return new Response("", {
-    //                 status: 503,
-    //             })
-    //         }
-    //     }))
-    // }
 })
 
 self.addEventListener("activate", e => {
