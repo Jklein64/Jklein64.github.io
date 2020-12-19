@@ -42,7 +42,7 @@ mwc-fab#range-fab {
     --mdc-theme-on-secondary: black;
 }
 
-#range-dialog span {
+#range-dialog span.distance {
     color: var(--mdc-theme-primary);
 }
 

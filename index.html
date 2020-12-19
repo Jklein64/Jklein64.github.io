@@ -56,11 +56,10 @@
 
                 <section id="range-dialog">
                     <mwc-dialog heading="Modify Range">
-                        <p>Only show destinations up to <span class="distance"></span> miles from my current
-                            location.</p>
+                        <p>Only show destinations up to <span class="distance"></span> <span></span> from my current location.</p>
                         <div id="range-slider-container">
                             <mwc-icon style="transform: scale(0.75)">open_in_full</mwc-icon>
-                            <mwc-slider id="range-slider" max="100" step="1" value="15" pin></mwc-slider>
+                            <mwc-slider id="range-slider" min="1" max="100" step="1" value="15" pin></mwc-slider>
                             <mwc-icon>open_in_full</mwc-icon>
                         </div>
 
