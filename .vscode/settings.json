@@ -3,5 +3,6 @@
     "explorer.sortOrder": "type",
     "beautify.config": {
         "brace_style": "collapse,preserve-inline"
-    }
+    },
+    "explorer.compactFolders": false
 }
