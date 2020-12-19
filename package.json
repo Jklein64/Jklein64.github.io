@@ -1,0 +1,26 @@
+{
+    "name": "find-a-bus",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {
+        "@barba/core": "^2.9.7",
+        "@barba/css": "^2.1.15",
+        "@material/mwc-button": "^0.20.0",
+        "@material/mwc-dialog": "^0.20.0",
+        "@material/mwc-drawer": "^0.20.0",
+        "@material/mwc-fab": "^0.20.0",
+        "@material/mwc-icon-button": "^0.20.0",
+        "@material/mwc-list": "^0.20.0",
+        "@material/mwc-slider": "^0.20.0",
+        "@material/mwc-top-app-bar-fixed": "^0.20.0"
+    },
+    "devDependencies": {
+        "snowpack": "^2.18.5"
+    },
+    "scripts": {
+        "dev": "snowpack dev"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}
