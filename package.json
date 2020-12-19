@@ -18,7 +18,7 @@
         "snowpack": "^2.18.5"
     },
     "scripts": {
-        "dev": "snowpack dev"
+        "dev": "snowpack dev --secure"
     },
     "keywords": [],
     "author": "",
