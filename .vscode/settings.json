@@ -1,3 +1,7 @@
 {
-    "editor.wrappingIndent": "indent"
+    "editor.wrappingIndent": "indent",
+    "explorer.sortOrder": "type",
+    "beautify.config": {
+        "brace_style": "collapse,preserve-inline"
+    }
 }

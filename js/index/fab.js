@@ -1,4 +1,4 @@
-import state from "../state.js"
+import state from "../common/state.js"
 
 const rangeFAB = document.getElementById("range-fab")
 const destinationsFAB = document.getElementById("destinations-fab")

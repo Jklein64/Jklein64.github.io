@@ -1,4 +1,4 @@
-import state from "../state.js"
+import state from "../common/state.js"
 
 const undefinedElements = document.querySelectorAll(":not(:defined)")
 const promises = Array.prototype.map.call(undefinedElements, el => customElements.whenDefined(el.localName))
