@@ -1,4 +1,4 @@
-import state from "../state.js"
+import state from "../common/state.js"
 
 const drawer = document.getElementById("drawer")
 drawer.addEventListener("MDCDrawer:closed", () => state.destinationsDrawerOpen = false)
