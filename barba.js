@@ -1,20 +1,25 @@
-import barba from "https://unpkg.com/@barba/core@2.9.7/dist/barba.mjs?module"
+import { barba, barbaCSS } from "./deps.js"
+
+barba.use(barbaCSS)
+
 barba.init({
-	views: [
-		{
-			namespace: "index",
-			beforeEnter(data) {
-				console.log(data)
-				const fragment = document.createRange().createContextualFragment(data.next.html)
-				const script = fragment.querySelector("script[data-dependencies]")
-				const content = script.textContent.replace(/\n\t/g, "")
-				import(`data:text/javascript, ${content}`).then(({ default: deps }) => {
-					const promises = deps.map(dep => import(dep))
-					Promise.all(promises).then(() => {
-						console.log("loaded!")
-					})
-				})
-			},
-		},
-	],
+    transitions: [{
+        name: "slide",
+        sync: true,
+        from: {
+            namespace: "thing",
+        },
+        to: {
+            namespace: "index",
+        },
+        before(data) {
+            data.next.container.classList.add("slide-before")
+        },
+        beforeLeave(data) {
+            data.next.container.classList.remove("slide-before")
+            console.log("leaving", data)
+        },
+        enter: () => {},
+        leave: () => {},
+    }, ],
 })
